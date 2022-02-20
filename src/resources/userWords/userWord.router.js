@@ -25,7 +25,10 @@ router.post(
       req.userId,
       req.body
     );
-    res.status(OK).send(word.toResponse());
+    res
+      .header('Access-Control-Allow-Origin', '*')
+      .header('Access-Control-Allow-Headers', 'origin, content-type, accept')
+      .status(OK).send(word.toResponse());
   }
 );
 
